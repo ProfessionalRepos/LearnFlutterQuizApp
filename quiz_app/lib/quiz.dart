@@ -17,6 +17,7 @@ class _QuizState extends State<Quiz> {
   _QuizState(this.colors);
 
   final List<Color> colors;
+  // class level variable
   var activeScreen = 'start-screen';
 
   void switchScreen() {
@@ -27,6 +28,11 @@ class _QuizState extends State<Quiz> {
 
   @override
   Widget build(context) {
+    // introduce a method level variable
+    var screenWidget = activeScreen == 'start-screen'
+        ? StartScreen(switchScreen)
+        : const QuestionsScreen();
+
     return MaterialApp(
       home: Scaffold(
         body: Container(
@@ -37,9 +43,7 @@ class _QuizState extends State<Quiz> {
                 end: Alignment.bottomRight,
                 tileMode: TileMode.mirror),
           ),
-          child: activeScreen == 'start-screen'
-              ? StartScreen(switchScreen)
-              : const QuestionsScreen(),
+          child: screenWidget,
         ),
       ),
     );
