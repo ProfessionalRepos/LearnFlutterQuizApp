@@ -10,11 +10,15 @@ class QuestionsScreen extends StatefulWidget {
 }
 
 class _QuestionsScreenState extends State<QuestionsScreen> {
-  // default constructor is provided by dart
   @override
   Widget build(context) {
     return const Center(
-      child: Text("This is from Questions inner class"),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text("This is from Questions inner class"),
+        ],
+      ),
     );
   }
 }

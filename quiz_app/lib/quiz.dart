@@ -3,21 +3,15 @@ import 'package:quiz_app/questions_screen.dart';
 import 'package:quiz_app/start_screen.dart';
 
 class Quiz extends StatefulWidget {
-  const Quiz(this.colors, {super.key});
-
-  final List<Color> colors;
+  const Quiz({super.key});
 
   @override
   State<Quiz> createState() {
-    return _QuizState(colors);
+    return _QuizState();
   }
 }
 
 class _QuizState extends State<Quiz> {
-  _QuizState(this.colors);
-
-  final List<Color> colors;
-  // class level variable
   var activeScreen = 'start-screen';
 
   void switchScreen() {
@@ -28,7 +22,6 @@ class _QuizState extends State<Quiz> {
 
   @override
   Widget build(context) {
-    // introduce a method level variable
     Widget screenWidget = StartScreen(switchScreen);
     if (activeScreen == 'questions-screen') {
       screenWidget = const QuestionsScreen();
@@ -37,9 +30,12 @@ class _QuizState extends State<Quiz> {
     return MaterialApp(
       home: Scaffold(
         body: Container(
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             gradient: LinearGradient(
-                colors: colors,
+                colors: [
+                  Color.fromARGB(255, 52, 145, 151),
+                  Color.fromARGB(255, 92, 218, 235)
+                ],
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
                 tileMode: TileMode.mirror),

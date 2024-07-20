@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 
 class StartScreen extends StatelessWidget {
   const StartScreen(this.startQuiz, {super.key});
-
-  // void launchQuiz() {}
+  
   final void Function() startQuiz;
 
   @override
@@ -30,8 +29,6 @@ class StartScreen extends StatelessWidget {
             icon: const Icon(Icons.arrow_right_alt),
             label: const Text(
               "Start Quiz",
-              // this will override the styling of the button
-              // style: TextStyle(color: Colors.black),
             ),
           ),
         ],
