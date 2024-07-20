@@ -17,17 +17,11 @@ class _QuizState extends State<Quiz> {
   _QuizState(this.colors);
 
   final List<Color> colors;
-  Widget? activeScreen;
-
-  @override
-  void initState() {
-    super.initState();
-    activeScreen = StartScreen(switchScreen);
-  }
+  var activeScreen = 'start-screen';
 
   void switchScreen() {
     setState(() {
-      activeScreen = const QuestionsScreen();
+      activeScreen = 'questions-screen';
     });
   }
 
@@ -43,7 +37,9 @@ class _QuizState extends State<Quiz> {
                 end: Alignment.bottomRight,
                 tileMode: TileMode.mirror),
           ),
-          child: activeScreen,
+          child: activeScreen == 'start-screen'
+              ? StartScreen(switchScreen)
+              : const QuestionsScreen(),
         ),
       ),
     );
